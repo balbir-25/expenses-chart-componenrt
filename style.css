@@ -1,147 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    line-height: 1em;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+  box-sizing: border-box;
 }
 
-body{
-    font-family: "DM Sans";
-    background-color:hsl(27, 66%, 92%);
-    min-width: 1340px;
-    min-height: 100vh; 
-    text-align: center;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.2rem;
+body {
+  font-family: "DM Sans";
+  background-color: hsl(27, 66%, 92%);
+  min-width: 1340px;
+  min-height: 100vh;
+  text-align: center;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
 }
 /* ======================================START MAIN AREA================================= */
-.site{
-    margin-top: 50px;
-    padding: 2.4rem 1.6rem;
+.site {
+  margin-top: 50px;
+  padding: 2.4rem 1.6rem;
 }
 /* ==================================START HEAD AREA=============================== */
-.head{
-    display: flex;
-    background-color: hsl(10, 79%, 65%);
-    border-radius: 20px;
-    justify-content: space-between;
-    padding: 30px;
-    max-width: 35rem;
-    color: hsl(33, 100%, 98%);
-    margin-left: 350px;
-    align-items: center;
-    text-align: start;
+.head {
+  display: flex;
+  background-color: hsl(10, 79%, 65%);
+  border-radius: 20px;
+  justify-content: space-between;
+  padding: 30px;
+  max-width: 35rem;
+  color: hsl(33, 100%, 98%);
+  margin-left: 350px;
+  align-items: center;
+  text-align: start;
 }
 
-.my-h1{
-    margin-top: 20px;
+.my-h1 {
+  margin-top: 20px;
 }
 
 /* ==================================END HEAD AREA=============================== */
 /* ====================================START INFO AREA=========================== */
-.info{
-    background-color: hsl(33, 100%, 98%);
-    max-width: 35rem;
-    margin-left: 350px;
-    border-radius: 20px;
-    margin-top: 30px;
-    text-align: start;
-    padding: 30px;
+.info {
+  background-color: hsl(33, 100%, 98%);
+  max-width: 35rem;
+  margin-left: 350px;
+  border-radius: 20px;
+  margin-top: 30px;
+  text-align: start;
+  padding: 30px;
 }
 
-.info-h2{
-    color: hsl(25, 47%, 15%);
+.info-h2 {
+  color: hsl(25, 47%, 15%);
 }
 
-.info-para{
-    margin-top: 30px;
-    color: hsl(28, 10%, 53%);
+.info-para {
+  margin-top: 30px;
+  color: hsl(28, 10%, 53%);
 }
 
-.price{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+.price {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-.price-h2{
-    font-size: 3rem;
-    color: hsl(25, 47%, 15%);
+.price-h2 {
+  font-size: 3rem;
+  color: hsl(25, 47%, 15%);
 }
 
-.rise{
-    text-align: end;
+.rise {
+  text-align: end;
 }
 
-.rise-h4{
-    color: hsl(25, 47%, 15%);
+.rise-h4 {
+  color: hsl(25, 47%, 15%);
 }
 
-.rise-para{
-    color: hsl(28, 10%, 53%);
-    margin-top: 10px;
+.rise-para {
+  color: hsl(28, 10%, 53%);
+  margin-top: 10px;
 }
 
-.week {
-    width: 100%;
-    height: 53.8873994638%;
-    display: flex;
-    justify-content: space-between;
-    margin: 20px auto;
-   }
+hr {
+  margin-top: 30px;
+}
 
-   .week .day {
-    width: 10.8910891089%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-   }
+.chart{
+    margin-top: 50px;
+}
 
-   .week .day figcaption {
-    margin-top: 0.7333333333rem;
-    margin-bottom: 1.6rem;
-   }
-
-   .week .day .bar {
-    width: 100%;
-    height: 0;
-    transition: height 2.5s ease-out;
-    background-color: #ec755d;
-    border-radius: 0.2rem;
-   }
-
-   .week .day .bar:hover {
-    background-color: #ff9b86;
-   }
-
-  hr{
-    margin-top: 30px;
-  }
-  
 /* ====================================END INFO AREA=========================== */
 /* ======================================END MAIN AREA================================= */
 /* =============================START FOOTER  AREA=========================== */
 .foot {
-    text-align: center;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 20px;
-    color: hsl(0, 100%, 67%);
-    background-color: black;
-    margin-top: 130px;
-  }
-  
-  .foot a {
-    text-decoration: none;
-    color: hsl(39, 100%, 56%);
-  }
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 20px;
+  color: hsl(0, 100%, 67%);
+  background-color: black;
+  margin-top: 130px;
+}
 
-  .foot a:hover{
-    color: hsl(300, 69%, 71%);
-  }
-  /* =============================END FOOTER  AREA=========================== */
+.foot a {
+  text-decoration: none;
+  color: hsl(39, 100%, 56%);
+}
+
+.foot a:hover {
+  color: hsl(300, 69%, 71%);
+}
+/* =============================END FOOTER  AREA=========================== */
+/* =============================START MEDIA QUERY========================== */
+@media screen and (max-width: 768px) {
+    body{
+        min-width: fit-content;
+    }
+
+    .head, .info{
+        margin-left: 0px;
+    }
+}
+/* =============================END MEDIA QUERY========================== */

@@ -1,63 +1,51 @@
+// Get the canvas element
+const canvas = document.querySelector('.chart');
  
+// Fetch the data from JSON file
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    // Extract the days and amounts from data
+    const days = data.map(item => item.day);
+    const amounts = data.map(item => item.amount);
  
-"use strict";
-	 
-	// Draw graph
-	const cyan = "#76B5BC";
-	const fadedCyan = "#B4E0E5";
-	 
-	async function getData(url) {
-	    const requestURL = url;
-	    const request = new Request(requestURL);
-	 
-	    const response = await fetch(request);
-	    const jsonArr = await response.json();
-	 
-	    populateBars(jsonArr);
-	}
-	 
-	function populateBars(jsonArr) {
-	    const maxAmount = jsonArr.reduce(
-	        (max, obj) =>
-	            Number(max) < Number(obj.amount) ? Number(obj.amount) : Number(max),
-	        0
-	    );
-	 
-	    let height;
-	    if (window.innerWidth >= 700) {
-	        height = (ratio) => `${ratio * 150}px`;
-	    } else {
-	        height = (ratio) => `${(150 / 375) * ratio * 100}vw`;
-	    }
-	 
-	    for (const obj of jsonArr) {
-	        const bar = document.querySelector(`#${obj.day}`);
-	        const ratio = obj.amount / maxAmount;
-	        bar.style.height = height(ratio);
-	        bar.style.transitionDuration = `${ratio * 2}s`;
-	        bar.dataset.amount = `$${obj.amount}`;
-	    }
-	 
-	    // Highlight current day with a different color
-	    const weekDayIndex = (new Date().getDay() - 1 + 7) % 7;
-	    const currBar = document.querySelectorAll(".bar")[weekDayIndex];
-	    currBar.style.backgroundColor = cyan;
-	    currBar.onmouseover = () => (currBar.style.backgroundColor = fadedCyan);
-	    currBar.onmouseout = () => (currBar.style.backgroundColor = cyan);
-	}
-	 
-	getData("data.json");
-	 
-	// Scale the design for bigger screens
-	const scalar = () => {
-	    const container = document.querySelector(".container");
-	    if (window.innerWidth >= 700) {
-	        container.style.transform = `scale(${window.innerWidth / 1440})`;
-	    } else {
-	        container.style.transform = `scale(1)`;
-	    }
-	};
-	 
-	window.onresize = scalar;
-	 
-	scalar();
+    // Find the index of the current day
+    const today = new Date().toLocaleString('en-us', { weekday: 'short' }).toLowerCase();
+    const currentDayIndex = days.findIndex(day => day === today);
+ 
+    // Set the colors of the bars
+    const barColors = amounts.map((amount, index) => {
+      if (index === currentDayIndex) {
+        return 'hsl(186, 34%, 60%)'; // Current day color
+      }
+      return 'hsl(10, 79%, 65%)'; // Other days color
+    });
+ 
+    // Create the chart using Chart.js library
+    const chart = new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: days,
+        datasets: [{
+          label: 'Expenses',
+          data: amounts,
+          backgroundColor: barColors,
+          barThickness: 45 // Width of each bar
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        legend: {
+          display: false
+        }
+      },
+    });
+  })
+  .catch(error => console.error(error));
+ 
